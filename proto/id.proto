@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+option go_package = "../pb";
+
+// 定义全局消息 ID 
+enum MessageID {
+    LOGIN_REQUIRED = 0;
+
+    // 账号注册     
+    CS_ACCOUNT_REGISTER = 1;    //CS_AccountRegister_Req
+    SC_ACCOUNT_REGISTER = 2;    //SC_AccountRegister_Res
+
+    // 账号登录
+    CS_ACCOUNT_LOGIN = 3;   //CS_AccountLogin_Req
+    SC_ACCOUNT_LOGIN = 4;   //SC_AccountLogin_Res
+
+    // 预留账号登出
+    //CS_ACCOUNT_LOGOUT
+    //SC_ACCOUNT_LOGOUT
+
+
+    //============================ ACCOUNT 相关的协议 ====================================
+
+    // 获取玩家钻石数量
+    // CS_GET_ACCOUNT_DIAMOND = 1001;  // 客户端主动请求获取玩家的钻石信息: 钻石数量
+    // SC_GET_ACCOUNT_DIAMOND = 1002;  
+
+
+    
+
+    
+
+    
+
+
+    
+    //============================ 体力相关 ====================================
+
+    // 服务端定时向客户端更新体力值
+    SYNC_ACCOUNT_TP = 1201;     // SC_SyncAccountTP
+
+    // 客户端获取玩家体力
+    CS_GET_ACCOUNT_TP = 1202;      // CS_GetAccountTP_Req
+    SC_GET_ACCOUNT_TP = 1203;      // SC_GetAccountTP_Res
+
+    // 玩家点击「选拔开始」消耗固定体力
+    CS_SELECTION_CONSUME_TP = 1204;    //CS_SelectionConsumeTP_Req
+    SC_SELECTION_CONSUME_TP = 1205;    //SC_SelectionConsumeTP_Res
+    // ========================================================================
+
+    
+
+    //============================ base_role ==================================
+
+    // 获取玩家可以使用的 base_role
+    CS_GET_BASE_ROLE =  1301;   //CS_GetAccountBaseRole_Req
+    SC_GET_BASE_ROLE =  1302;   //SC_GetAccountBaseRole_Res
+    // ========================================================================
+    
+
+
+    //============================ training_role ==============================
+
+    // 传入 base_role_id 和对应的进阶系数，生成一个训练角色
+    // 玩家没有训练中的角色，则会根据选择的 base_role 生成一个对应的 training_role
+    CS_GENERATE_TRAINING_ROLE =  1401;  //CS_GenerateTrainingRole_Req
+    SC_GENERATE_TRAINING_ROLE =  1402;  //SC_GenerateTrainingRole_Res
+    // ========================================================================
+
+
+
+    //============================ 支援卡相关 ===================================
+
+    // 客户端请求获取玩家所有可用的支援卡
+    CS_LIST_SUPPORT_CARD = 1501;    //CS_ListSupportCard_Req
+    SC_LIST_SUPPORT_CARD = 1502;    //SC_ListSupportCard_Res
+
+    // 客户端提交选定的所有支援卡
+    CS_COMMIT_SUPPORT_CARD = 1503;  //CS_CommitSupportCard_Req
+    SC_COMMIT_SUPPORT_CARD = 1504;  //SC_CommitSupportCard_Res
+    // ========================================================================
+
+
+    //============================ 日程相关 ====================================
+
+    // 客户端请求获取一批日程
+    CS_LIST_SCHEDULE = 1601;    //CS_ListSchedule_Req
+    SC_LIST_SCHEDULE = 1602;    //SC_ListSchedule_Res
+
+    // 客户端提交选定的日程
+    CS_COMMIT_SCHEDULE = 1603;  //CS_CommitSchedule_Req
+    SC_COMMIT_SCHEDULE = 1604;  //SC_CommitSchedule_Res
+
+    // ========================================================================
+
+
+
+    //============================ 训练相关 ====================================
+
+    // 更新事件的阶段，默认 +1
+    CS_UPDATE_ENENT_PROCESS = 1701;     //CS_UpdateEventProgress_Req
+    SC_UPDATE_EVENT_PROCESS = 1702;     //SC_UpdateEventProgress_Res
+
+    // 客户端提交选定的日程分支
+    CS_COMMIT_EVENT_BRANCH = 1703;      //CS_CommitEventBranch_Req
+    SC_COMMIT_EVENT_BRANCH = 1704;      //SC_CommitEventBranch_Res
+
+    // ========================================================================
+
+
+    
+
+    //============================ 养成全局通信 =================================
+
+    // 训练中购买芯片
+    CS_BUY_TRAINING_CHIP = 5001;    //CS_BuyTrainingChip_Req
+    SC_BUY_TRAINING_CHIP = 5002;    //SC_BuyTrainingChip_Res
+
+    // 训练中购买遗物
+    CS_BUY_TRAINING_RELICS = 5003;      //CS_BuyTrainingRelics_Req
+    SC_BUY_TRAINING_RELICS = 5004;      //SC_BuyTrainingRelics_Res
+
+    // 训练中购买训练道具
+    CS_BUY_TRAINING_CULTIVATE_GOODS = 5005;     //CS_BuyTrainingCultivateGoods_Req
+    SC_BUY_TRAINING_CULTIVATE_GOODS = 5006;     //SC_BuyTrainingCultivateGoods_Res
+
+    // ========================================================================
+
+}

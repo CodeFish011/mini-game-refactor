@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "../pb";
+
+enum ErrorCode {
+    INVALID = 0;    //非法操作
+    SUCCESS = 1;    // 操作成功
+    FAILED = 2;     // 操作失败
+    SERVER_ERROR = 3;   // 服务器端错误
+
+    USERNAME_IS_NIL = 1003;    // 用户名为空
+    PASSWORD_IS_NIL = 1004;    // 密码为空
+    USERNAME_IS_USED = 1005;   // 用户名已被使用
+    USERNAME_OR_PASSWORD_WRONG = 1006; // 用户名或密码错误
+}
